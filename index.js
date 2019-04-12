@@ -42,7 +42,12 @@ GPSState.getStatus = ()=>{
 }
 
 GPSState.openSettings = (openInDetails=true)=>{
-	GPSState._openSettings(openInDetails);
+	if (isIOS) {
+		GPSState._openSettings();
+	} else {
+		GPSState._openSettings(openInDetails);
+	}
+
 }
 
 GPSState.requestAuthorization = (authType)=>{
